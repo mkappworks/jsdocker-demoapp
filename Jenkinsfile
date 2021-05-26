@@ -2,9 +2,15 @@ pipeline{
     agent any
 
     stages{
+        
+        
         stage("build"){
             steps{
                 echo 'building the application...'
+                echo 'excuting yarn...'
+                nodejs('Node-10.17'){
+                    sh 'yarn install'
+                }
                 echo 'application built!'
             }
         }
